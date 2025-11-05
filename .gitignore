@@ -1,0 +1,94 @@
+# ----------------------------
+# Deliva App - Root .gitignore
+# Cobre: frontend/ (React+Vite), futuro backend/ e admin/ (Node/Express)
+# ----------------------------
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Package managers (não ignore os lockfiles; são úteis para build reproduzível)
+# Se quiser padronizar, mantenha apenas UM dos três arquivos de lock.
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Build / Output
+dist/
+dist-ssr/
+build/
+coverage/
+
+# Vite
+vite.svg
+*.local
+
+# Env / Secrets
+.env
+.env.*
+*.env
+*.env.*
+
+# Logs gerais
+logs/
+*.log
+*.out
+*.pid
+*.seed
+*.pid.lock
+
+# Cache / Temporários
+.tmp/
+temp/
+cache/
+.npm/
+.parcel-cache/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Tests
+.jest/
+jest-cache/
+jest-html-reporters-*.html
+coverage/
+
+# Storybook (se usar futuramente)
+.storybook-out/
+storybook-static/
+
+# Next/Nuxt (caso crie uma docs app no futuro)
+.next/
+.nuxt/
+
+# Docker
+**/*.dockerfile
+.dockerignore
+
+# Prisma / Migrations (se usar futuramente)
+# prisma/dev.db
+# prisma/dev.db-journal
+
+# Uploads (se backend salvar arquivos locais; ajuste conforme seu app)
+uploads/
+storage/
+
+# Back-end/admin específicos (quando existirem)
+backend/node_modules/
+backend/dist/
+backend/build/
+admin/node_modules/
+admin/dist/
+admin/build/
+
+# Monorepo tooling (se adotar futuramente)
+.pnpm-debug.log*
+.nx/
+turbo/
