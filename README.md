@@ -6,7 +6,7 @@ Aplicação full-stack de pedidos de comida, em desenvolvimento incremental.
 > *"How To Create Full Stack Food Delivery Website In React JS, MongoDB, Express, Node JS & Stripe"*  
 > (YouTube) — porém **personalizado, estruturado e expandido manualmente** durante o desenvolvimento.
 
-![Preview](frontend/public/og-deliva-preview.png)
+![Preview](frontend/public/deliva-preview-banner.png)
 
 ---
 
