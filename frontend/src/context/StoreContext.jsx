@@ -25,6 +25,10 @@ const StoreContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
 
+  React.useEffect(() => { 
+    console.log(cartItems)
+  },[cartItems]);
+
   // Valores e funções que ficam disponíveis para todos os componentes filhos
   const contextValue = {
     food_list,     // Lista completa dos alimentos (dados do menu)

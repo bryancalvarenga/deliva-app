@@ -4,9 +4,6 @@ import assets from "../../assets/assets.js";
 import { StoreContext } from "../../context/StoreContext.jsx";
 
 const FoodItem = ({ id, name, price, description, image }) => {
-  // Estado local para controlar quantidade do item selecionado
-  const [itemCount, setItemCount] = React.useState(0);
-
   // Pegando funções e valores globais do contexto
   // Mesmo que neste componente ainda não estejam sendo usados diretamente
   const { cartItems, addToCart, removeFromCart } =
@@ -19,10 +16,10 @@ const FoodItem = ({ id, name, price, description, image }) => {
         <img className="food-item-image" src={image} alt="" />
 
         {/* Se o item ainda não foi adicionado, mostra o botão de adicionar */}
-        {!itemCount ? (
+        {!cartItems[id] ? (
           <img
             className="add"
-            onClick={() => setItemCount((prev) => prev + 1)}
+            onClick={() => addToCart(id)}
             src={assets.add_icon_white}
             alt=""
           />
@@ -31,17 +28,17 @@ const FoodItem = ({ id, name, price, description, image }) => {
           <div className="food-item-counter">
             {/* Botão para diminuir a quantidade */}
             <img
-              onClick={() => setItemCount((prev) => prev - 1)}
+              onClick={() => removeFromCart(id)}
               src={assets.remove_icon_red}
               alt=""
             />
 
             {/* Quantidade atual */}
-            <p>{itemCount}</p>
+            <p>{cartItems[id]}</p>
 
             {/* Botão para aumentar a quantidade */}
             <img
-              onClick={() => setItemCount((prev) => prev + 1)}
+              onClick={() => addToCart(id)}
               src={assets.add_icon_green}
               alt=""
             />
