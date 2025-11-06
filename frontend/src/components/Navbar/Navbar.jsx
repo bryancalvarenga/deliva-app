@@ -3,7 +3,7 @@ import './Navbar.css';
 import assets from '../../assets/assets';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
 
   // Estado para controlar qual item do menu está selecionado
   const [menu, setMenu] = useState("home");
@@ -61,7 +61,7 @@ const Navbar = () => {
         </div>
 
         {/* Botão para login */}
-        <button>Sign in</button>
+        <button onClick={()=>setShowLogin(true)}>Sign in</button>
       </div>
     </div>
   );
