@@ -7,13 +7,19 @@ import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 import Footer from "./components/Footer/Footer";
+import LoginPopup from "./components/LoginPopup/LoginPopup";
 
 const App = () => {
+
+
+  const [showLogin, setShowLogin] = React.useState(false);
+
   return (
     <>
+    {showLogin?<LoginPopup setShowLogin={setShowLogin} />:<></>}
       <div className="app">
         {/* Navbar fixada no topo, presente em todas as rotas */}
-        <Navbar />
+        <Navbar setShowLogin={setShowLogin} />
 
         {/* Sistema de rotas da aplicação */}
         <Routes>
