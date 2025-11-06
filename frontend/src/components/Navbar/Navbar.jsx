@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import assets from '../../assets/assets';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -17,33 +18,34 @@ const Navbar = () => {
       <ul className="navbar-menu">
 
         {/* Cada item altera o estado para mostrar qual está ativo */}
-        <li 
+        <Link 
+          to='/'
           onClick={() => setMenu("home")} 
           className={menu === "home" ? "active" : ""}
         >
           home
-        </li>
+        </Link>
 
-        <li 
+        <a href='#explore-menu' 
           onClick={() => setMenu("menu")} 
           className={menu === "menu" ? "active" : ""}
         >
           menu
-        </li>
+        </a>
 
-        <li 
+        <a href='#app-download'  
           onClick={() => setMenu("mobile-app")} 
           className={menu === "mobile-app" ? "active" : ""}
         >
           mobile-app
-        </li>
+        </a>
 
-        <li 
+        <a href='#footer'  
           onClick={() => setMenu("contact-us")} 
           className={menu === "contact-us" ? "active" : ""}
         >
           contact us
-        </li>
+        </a>
       </ul>
 
       {/* Ícones e botão do lado direito */}
