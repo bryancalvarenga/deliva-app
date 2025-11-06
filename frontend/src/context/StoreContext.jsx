@@ -1,17 +1,45 @@
-import { createContext } from "react";
-import { food_list } from "../assets/assets";   
+import React, { createContext } from "react";
+import { food_list } from "../assets/assets";
+
+// Cria o contexto que será usado para compartilhar dados globalmente
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
-    const contextValue = {
-        food_list
-    };
+  // Estado global do carrinho
+  // Estrutura: { idDoProduto: quantidade }
+  const [cartItems, setCartItems] = React.useState({});
 
-    return (
-        <StoreContext.Provider value={contextValue}>
-            {props.children}
-        </StoreContext.Provider>
-    );
-}
+  // Função para adicionar item ao carrinho
+  const addToCart = (itemId) => {
+    // Se o item ainda não existe no carrinho, adiciona com quantidade 1
+    if (!cartItems[itemId]) {
+      setCartItems((prev) => ({ ...prev, [itemId]: 1 }));
+    } else {
+      // Caso já exista, apenas incrementa a quantidade
+      setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+    }
+  };
+
+  // Função para remover um item do carrinho (decrementando a quantidade)
+  const removeFromCart = (itemId) => {
+    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+  };
+
+  // Valores e funções que ficam disponíveis para todos os componentes filhos
+  const contextValue = {
+    food_list,     // Lista completa dos alimentos (dados do menu)
+    cartItems,     // Estado atual do carrinho
+    setCartItems,  // Permite modificar carrinho manualmente, caso necessário
+    addToCart,     // Função para adicionar ao carrinho
+    removeFromCart // Função para diminuir quantidade do carrinho
+  };
+
+  return (
+    // Provider envolve toda a aplicação para que todos possam acessar o contexto
+    <StoreContext.Provider value={contextValue}>
+      {props.children}
+    </StoreContext.Provider>
+  );
+};
 
 export default StoreContextProvider;

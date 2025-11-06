@@ -1,20 +1,30 @@
-import React from 'react'
-import './Home.css'
-import Header from '../../components/Header/Header'
-import ExploreMenu from '../../components/ExploreMenu/ExploreMenu'
-import FoodDisplay from '../../components/FoodDisplay/FoodDisplay'
+import React from 'react';
+import './Home.css';
+
+// Componentes usados na página
+import Header from '../../components/Header/Header';
+import ExploreMenu from '../../components/ExploreMenu/ExploreMenu';
+import FoodDisplay from '../../components/FoodDisplay/FoodDisplay';
 
 const Home = () => {
 
-  const [category, setCategory] = React.useState("All")
+  // Estado para controlar a categoria do menu selecionada
+  // "All" significa que inicialmente exibe todos os itens
+  const [category, setCategory] = React.useState("All");
 
   return (
     <div>
+      {/* Banner / seção principal do topo */}
       <Header />
-      <ExploreMenu category={category} setCategory={setCategory}/>
+
+      {/* Componente para seleção de categorias */}
+      {/* Passa o estado e o setter para permitir alteração */}
+      <ExploreMenu category={category} setCategory={setCategory} />
+
+      {/* Lista dos alimentos filtrados pela categoria selecionada */}
       <FoodDisplay category={category} />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
