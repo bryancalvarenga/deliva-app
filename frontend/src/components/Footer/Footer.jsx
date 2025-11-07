@@ -3,47 +3,52 @@ import "./Footer.css";
 import assets from "../../assets/assets";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
   return (
-    <div className="footer" id="footer">
-      <div className="footer-content">
-        <div className="footer-content-left">
-          <img className="footer-content-logo" src={assets.logo} alt="" />
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Praesentium excepturi, sunt nulla, expedita eveniet quod velit
-            corporis in reiciendis dolores voluptatum eos ratione, id iste modi
-            odio amet voluptate consequuntur.
+    <footer className="footer" id="footer">
+      <div className="footer__content">
+
+        <div className="footer__column">
+          <img className="footer__logo" src={assets.logo} alt="Deliva logo" />
+          <p className="footer__description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Praesentium expedita quod velit corporis in reiciendis 
+            eos ratione odio voluptate consequuntur.
           </p>
-          <div className="footer-social-icons">
-            <img src={assets.facebook_icon} alt="" />
-            <img src={assets.twitter_icon} alt="" />
-            <img src={assets.linkedin_icon} alt="" />
+
+          <div className="footer__social">
+            <img src={assets.facebook_icon} alt="Facebook" />
+            <img src={assets.twitter_icon} alt="Twitter" />
+            <img src={assets.linkedin_icon} alt="LinkedIn" />
           </div>
         </div>
-        <div className="footer-content-center">
-          <h2>Company</h2>
-          <ul>
+
+        <div className="footer__column">
+          <h2 className="footer__title">Company</h2>
+          <ul className="footer__list">
             <li>Home</li>
-            <li>About us</li>
+            <li>About us</            li>
             <li>Delivery</li>
             <li>Privacy policy</li>
           </ul>
         </div>
-        <div className="footer-content-right">
-          <h2>Get in touch</h2>
-          <ul>
+
+        <div className="footer__column">
+          <h2 className="footer__title">Get in touch</h2>
+          <ul className="footer__list">
             <li>+99 99 9999-9999</li>
             <li>contact@deliva.com</li>
           </ul>
         </div>
       </div>
-      <hr />
-      <p className="footer-copyright">
-        Copyright {currentYear} &copy; Deliva.com - All rights reserved.
+
+      <hr className="footer__divider" />
+
+      <p className="footer__copyright">
+        © {year} Deliva — All rights reserved.
       </p>
-    </div>
+    </footer>
   );
 };
 

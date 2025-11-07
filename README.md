@@ -1,41 +1,59 @@
-# Deliva — Sistema de Delivery Online
+# 🍽️ Deliva — Plataforma de Delivery Online
 
-Aplicação full-stack de pedidos de comida, em desenvolvimento incremental.
+Aplicação **full-stack** para pedidos de comida, com fluxo completo de catálogo → carrinho → checkout → pedido.
 
-> **Projeto desenvolvido com referência ao vídeo:**  
-> *"How To Create Full Stack Food Delivery Website In React JS, MongoDB, Express, Node JS & Stripe"*  
-> (YouTube) — porém **personalizado, estruturado e expandido manualmente** durante o desenvolvimento.
+> Construído em cima de uma base estudada, porém **reprojetado**, **refatorado** e **estruturado** de forma profissional — UI consistente, design system próprio e arquitetura preparada para escala.
 
 ![Preview](frontend/public/deliva-preview-banner.png)
 
 ---
 
-## 📦 Visão Geral
+## ✨ Visão Geral
 
-O **Deliva** é um app de delivery com foco em:
-- Catálogo de produtos
-- Carrinho e fluxo de checkout
-- Autenticação de usuário (JWT)
-- Gestão de pedidos
-- Integração de pagamentos (Stripe)
+O **Deliva** é uma plataforma de delivery focada em:
+- Navegação simples e clara por categorias
+- Experiência de compra fluída
+- Carrinho inteligente (Context API)
+- Checkout com dados de entrega
+- Evolução futura para pedidos em tempo real, autenticação e pagamentos
 
-> **Status:** iniciando pelo **frontend (React + Vite + Bootstrap)**.  
-> O **backend (Node.js/Express/MongoDB)** e o **admin** serão adicionados nas próximas etapas.
-
----
-
-## 🗂 Estrutura do Projeto
-
-```
-deliva-app/
-├─ frontend/     # Interface do usuário (React + Vite)
-├─ backend/      # API (Node.js + Express + MongoDB) — (futuro)
-└─ admin/        # Painel Administrativo — (futuro)
-```
+No momento, estamos refinando **UX + UI** e iniciando a estrutura do **backend**.
 
 ---
 
-## 🚀 Executando o Frontend
+## 🛠️ Stack Tecnológica
+
+### Frontend (UI + Interações já desenvolvidas)
+- **React + Vite**
+- **Context API** para carrinho
+- **CSS modular com BEM**
+- **Design System (tokens globais em :root)**
+- Layout responsivo + microinterações
+
+### Backend (em desenvolvimento)
+- **Node.js + Express**
+- **MongoDB (Atlas)** + **Mongoose**
+- **JWT** para autenticação
+- **Stripe** / **Pix** (a definir) para pagamentos
+
+### Futuro
+- Painel **Admin** para gestão do catálogo e pedidos
+- Tracking de entrega
+
+---
+
+## 📂 Estrutura do Projeto
+
+```
+deliva/
+├─ frontend/        # Interface do usuário (React)
+├─ backend/         # API REST e lógica de negócio (Node.js + Express)
+└─ admin/           # Painel administrativo (futuro)
+```
+
+---
+
+## ▶️ Executando o Frontend
 
 ```bash
 cd frontend
@@ -43,55 +61,55 @@ npm install
 npm run dev
 ```
 
-- App padrão do Vite: http://localhost:5173
+Acesse no navegador:  
+http://localhost:5173
 
 ---
 
-## 🧰 Tecnologias (até o momento)
+## 🎨 Design & UX
 
-- **React** + **Vite**
-- **Bootstrap** (estilização base)
-
-### Próximas etapas (planejado)
-- **Node.js** + **Express**
-- **MongoDB** (Atlas) + **Mongoose**
-- **JWT** (autenticação)
-- **Stripe** (pagamentos)
-- **Admin Panel**
+- Tokens de cor, radius e espaçamento padronizados
+- Nomenclatura **BEM** para componentes
+- Base responsiva **mobile-first**
+- Preparado para modo **Dark/Light**
+- Transições e feedbacks visuais consistentes
 
 ---
 
-## 📝 Roadmap
+## ✅ Roadmap de Desenvolvimento
 
-- [x] Base do frontend (componentes, layout inicial)
-- [ ] Lógica de carrinho
-- [ ] Autenticação (login/registro)
-- [ ] API REST (produtos, pedidos, usuários)
-- [ ] Integração Stripe
-- [ ] Painel administrativo
-- [ ] Deploy (Vercel + Render/Railway)
+| Etapa | Status |
+|------|:------:|
+| UI + Design System | ✅ Concluído |
+| Lógica do Carrinho (Context) | ✅ Concluído |
+| Checkout + Inputs de Entrega | ✅ Concluído |
+| Autenticação (JWT) | 🔜 Próximo |
+| Persistência (localStorage / DB) | 🔜 |
+| API REST de Produtos e Pedidos | 🔜 |
+| Pagamentos (Stripe / Pix) | 📝 Avaliação |
+| Painel Administrativo | 📝 Planejado |
+| Deploy (Vercel + Railway/Render) | 📝 Após backend |
 
 ---
 
-## 🤝 Contribuição
-
-Commits semânticos são bem-vindos:
+## 🤝 Padrão de Commits
 
 ```
 feat: nova funcionalidade
 fix: correção de bug
-chore: task de manutenção
-refactor: melhoria interna
-docs: ajustes de documentação
-style: ajuste visual (sem lógica)
+refactor: melhoria de código sem alterar comportamento
+style: ajustes de UI (sem lógica)
+docs: alteração na documentação
+chore: manutenção/configurações
 ```
 
 ---
 
-## 📄 Licença
+## 📜 Licença
 
-Este projeto está sob a licença **MIT**.
+Licença **MIT**.
 
 ---
 
 Feito por **Bryan Alvarenga** 🚀
+> Objetivo: não apenas criar um projeto, mas construir um produto.

@@ -1,45 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import "./LoginPopup.css";
 import assets from "../../assets/assets";
 
 const LoginPopup = ({ setShowLogin }) => {
-  const [currState, setCurrState] = React.useState("Login");
+  const [authMode, setAuthMode] = useState("login");
+
+  const isLogin = authMode === "login";
 
   return (
-    <div className="login-popup">
-      <form className="login-popup-container">
-        <div className="login-popup-title">
-          <h2>{currState}</h2>
-          <img
+    <div className="auth-modal">
+      <form className="auth-modal__container">
+        <div className="auth-modal__header">
+          <h2 className="auth-modal__title">
+            {isLogin ? "Login" : "Sign Up"}
+          </h2>
+
+          <button
+            type="button"
+            className="auth-modal__close"
             onClick={() => setShowLogin(false)}
-            src={assets.cross_icon}
-            alt=""
-          />
+          >
+            <img src={assets.cross_icon} alt="Close" />
+          </button>
         </div>
-        <div className="login-popup-inputs">
-          {currState === "Login" ? (
-            <></>
-          ) : (
+
+        <div className="auth-modal__inputs">
+          {!isLogin && (
             <input type="text" placeholder="Your name" required />
           )}
 
           <input type="email" placeholder="Your email" required />
           <input type="password" placeholder="Your password" required />
         </div>
-        <button>{currState === "Sign Up" ? "Create account" : "Login"}</button>
-        <div className="login-popup-condition">
+
+        <button className="auth-modal__submit">
+          {isLogin ? "Login" : "Create account"}
+        </button>
+
+        <label className="auth-modal__terms">
           <input type="checkbox" required />
-          <p>By continuing, i agree to the terms of use & privacy policy.</p>
-        </div>
-        {currState === "Login" ? (
-          <p>
-            Create a new account?{" "}
-            <span onClick={() => setCurrState("Sign Up")}>Click here</span>
+          <span>
+            By continuing, I agree to the Terms of Use & Privacy Policy.
+          </span>
+        </label>
+
+        {isLogin ? (
+          <p className="auth-modal__switch">
+            Don't have an account?{" "}
+            <span onClick={() => setAuthMode("signup")}>Create one</span>
           </p>
         ) : (
-          <p>
+          <p className="auth-modal__switch">
             Already have an account?{" "}
-            <span onClick={() => setCurrState("Login")}>Login here</span>
+            <span onClick={() => setAuthMode("login")}>Login</span>
           </p>
         )}
       </form>
