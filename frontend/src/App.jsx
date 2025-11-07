@@ -1,38 +1,31 @@
-import React from "react";
-import Navbar from "./components/Navbar/Navbar";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-// Páginas principais da aplicação
-import Home from "./pages/Home/Home";
-import Cart from "./pages/Cart/Cart";
-import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
+import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import LoginPopup from "./components/LoginPopup/LoginPopup";
 
+import Home from "./pages/Home/Home";
+import Cart from "./pages/Cart/Cart";
+import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
+
 const App = () => {
-
-
-  const [showLogin, setShowLogin] = React.useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
   return (
     <>
-    {showLogin?<LoginPopup setShowLogin={setShowLogin} />:<></>}
-      <div className="app">
-        {/* Navbar fixada no topo, presente em todas as rotas */}
-        <Navbar setShowLogin={setShowLogin} />
+      {showLogin && <LoginPopup setShowLogin={setShowLogin} />}
 
-        {/* Sistema de rotas da aplicação */}
+      <Navbar setShowLogin={setShowLogin} />
+
+      <main className="app">
         <Routes>
-          {/* Página inicial */}
           <Route path="/" element={<Home />} />
-
-          {/* Página do carrinho de compras */}
           <Route path="/cart" element={<Cart />} />
-
-          {/* Página de finalização do pedido */}
           <Route path="/order" element={<PlaceOrder />} />
         </Routes>
-      </div>
+      </main>
+
       <Footer />
     </>
   );

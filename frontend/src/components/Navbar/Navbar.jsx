@@ -1,76 +1,85 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Navbar.css";
 import assets from "../../assets/assets";
 import { Link } from "react-router-dom";
 import { StoreContext } from "../../context/StoreContext";
-import { useContext } from "react";
 
 const Navbar = ({ setShowLogin }) => {
-  // Estado para controlar qual item do menu está selecionado
-  const [menu, setMenu] = useState("home");
-
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const [activeMenu, setActiveMenu] = useState("home");
+  const { getCartTotal } = useContext(StoreContext);
 
   return (
-    <div className="navbar">
-      {/* Logo da marca */}
-      <Link to="/">
-        <img src={assets.logo} alt="" className="logo" />
+    <nav className="navbar">
+      <Link to="/" className="navbar__logo-link">
+        <img src={assets.logo} alt="Deliva Logo" className="navbar__logo" />
       </Link>
 
-      {/* Menu de navegação */}
-      <ul className="navbar-menu">
-        {/* Cada item altera o estado para mostrar qual está ativo */}
-        <Link
-          to="/"
-          onClick={() => setMenu("home")}
-          className={menu === "home" ? "active" : ""}
-        >
-          home
-        </Link>
+      <ul className="navbar__menu">
+        <li>
+          <Link
+            to="/"
+            onClick={() => setActiveMenu("home")}
+            className={`navbar__menu-item ${
+              activeMenu === "home" ? "navbar__menu-item--active" : ""
+            }`}
+          >
+            home
+          </Link>
+        </li>
 
-        <a
-          href="#explore-menu"
-          onClick={() => setMenu("menu")}
-          className={menu === "menu" ? "active" : ""}
-        >
-          menu
-        </a>
+        <li>
+          <a
+            href="#explore-menu"
+            onClick={() => setActiveMenu("menu")}
+            className={`navbar__menu-item ${
+              activeMenu === "menu" ? "navbar__menu-item--active" : ""
+            }`}
+          >
+            menu
+          </a>
+        </li>
 
-        <a
-          href="#app-download"
-          onClick={() => setMenu("mobile-app")}
-          className={menu === "mobile-app" ? "active" : ""}
-        >
-          mobile-app
-        </a>
+        <li>
+          <a
+            href="#app-download"
+            onClick={() => setActiveMenu("mobile-app")}
+            className={`navbar__menu-item ${
+              activeMenu === "mobile-app" ? "navbar__menu-item--active" : ""
+            }`}
+          >
+            mobile-app
+          </a>
+        </li>
 
-        <a
-          href="#footer"
-          onClick={() => setMenu("contact-us")}
-          className={menu === "contact-us" ? "active" : ""}
-        >
-          contact us
-        </a>
+        <li>
+          <a
+            href="#footer"
+            onClick={() => setActiveMenu("contact-us")}
+            className={`navbar__menu-item ${
+              activeMenu === "contact-us" ? "navbar__menu-item--active" : ""
+            }`}
+          >
+            contact us
+          </a>
+        </li>
       </ul>
 
-      {/* Ícones e botão do lado direito */}
-      <div className="navbar-right">
-        {/* Ícone de busca */}
-        <img src={assets.search_icon} alt="" />
+      <div className="navbar__actions">
+        <img src={assets.search_icon} alt="Search" className="navbar__icon" />
 
-        {/* Ícone do carrinho com indicador (dot) */}
-        <div className="navbar-search-icon">
+        <div className="navbar__cart">
           <Link to="/cart">
-            <img src={assets.basket_icon} alt="" />
+            <img src={assets.basket_icon} alt="Carrinho" className="navbar__icon" />
           </Link>
-          <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
+
+          {getCartTotal() > 0 && <span className="navbar__cart-indicator"></span>}
         </div>
 
-        {/* Botão para login */}
-        <button onClick={() => setShowLogin(true)}>Sign in</button>
+        <button className="navbar__login-btn" onClick={() => setShowLogin(true)}>
+          Sign in
+        </button>
       </div>
-    </div>
+    </nav>
   );
 };
 
