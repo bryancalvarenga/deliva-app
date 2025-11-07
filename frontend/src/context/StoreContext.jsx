@@ -25,17 +25,26 @@ const StoreContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
 
-  React.useEffect(() => { 
-    console.log(cartItems)
-  },[cartItems]);
+  // Função para calcular o valor total do carrinho
+  const getTotalCartAmount = () => {
+    let totalAmount = 0;
 
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        let itemInfo = food_list.find((product) => product._id === item);
+        totalAmount += itemInfo.price * cartItems[item];
+      }
+    }
+    return totalAmount;
+  };
   // Valores e funções que ficam disponíveis para todos os componentes filhos
   const contextValue = {
-    food_list,     // Lista completa dos alimentos (dados do menu)
-    cartItems,     // Estado atual do carrinho
-    setCartItems,  // Permite modificar carrinho manualmente, caso necessário
-    addToCart,     // Função para adicionar ao carrinho
-    removeFromCart // Função para diminuir quantidade do carrinho
+    food_list, // Lista completa dos alimentos (dados do menu)
+    cartItems, // Estado atual do carrinho
+    setCartItems, // Permite modificar carrinho manualmente, caso necessário
+    addToCart, // Função para adicionar ao carrinho
+    removeFromCart, // Função para diminuir quantidade do carrinho
+    getTotalCartAmount // Função para obter o valor total do carrinho
   };
 
   return (
