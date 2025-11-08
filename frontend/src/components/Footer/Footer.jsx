@@ -46,7 +46,7 @@ const Footer = () => {
       <hr className="footer__divider" />
 
       <p className="footer__copyright">
-        © {year} Deliva — All rights reserved.
+        &copy; {year} Deliva — All rights reserved.
       </p>
     </footer>
   );
