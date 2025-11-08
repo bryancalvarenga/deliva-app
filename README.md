@@ -1,115 +1,104 @@
 # 🍽️ Deliva — Plataforma de Delivery Online
 
-Aplicação **full-stack** para pedidos de comida, com fluxo completo de catálogo → carrinho → checkout → pedido.
+Aplicação **full-stack** para pedidos de comida, com catálogo, carrinho, autenticação e sistema de pedidos.
 
-> Construído em cima de uma base estudada, porém **reprojetado**, **refatorado** e **estruturado** de forma profissional — UI consistente, design system próprio e arquitetura preparada para escala.
-
-![Preview](frontend/public/deliva-preview-banner.png)
+Este projeto está sendo desenvolvido com foco em **organização**, **escalabilidade** e **padronização**, seguindo uma arquitetura clara de frontend + backend.
 
 ---
 
 ## ✨ Visão Geral
 
-O **Deliva** é uma plataforma de delivery focada em:
-- Navegação simples e clara por categorias
-- Experiência de compra fluída
-- Carrinho inteligente (Context API)
-- Checkout com dados de entrega
-- Evolução futura para pedidos em tempo real, autenticação e pagamentos
+O **Deliva** oferece:
 
-No momento, estamos refinando **UX + UI** e iniciando a estrutura do **backend**.
+- Catálogo de produtos por categorias
+- Carrinho dinâmico com Context API
+- Experiência de usuário fluida e responsiva
+- Backend estruturado para autenticação, pedidos e gerenciamento de produtos
+- Preparado para integração com **Stripe / Pix**
 
----
-
-## 🛠️ Stack Tecnológica
-
-### Frontend (UI + Interações já desenvolvidas)
-- **React + Vite**
-- **Context API** para carrinho
-- **CSS modular com BEM**
-- **Design System (tokens globais em :root)**
-- Layout responsivo + microinterações
-
-### Backend (em desenvolvimento)
-- **Node.js + Express**
-- **MongoDB (Atlas)** + **Mongoose**
-- **JWT** para autenticação
-- **Stripe** / **Pix** (a definir) para pagamentos
-
-### Futuro
-- Painel **Admin** para gestão do catálogo e pedidos
-- Tracking de entrega
+Atualmente, o frontend está funcional e o backend está em fase de construção.
 
 ---
 
-## 📂 Estrutura do Projeto
+## 🧱 Arquitetura do Projeto
 
 ```
 deliva/
-├─ frontend/        # Interface do usuário (React)
-├─ backend/         # API REST e lógica de negócio (Node.js + Express)
-└─ admin/           # Painel administrativo (futuro)
+ ├─ frontend/      # Interface do usuário (React + Vite)
+ ├─ backend/       # API REST (Node.js + Express + MongoDB)
+ └─ admin/         # Painel administrativo (em planejamento)
 ```
+
+Cada parte possui seu próprio **README** com instruções específicas.
 
 ---
 
-## ▶️ Executando o Frontend
+## 🛠️ Tecnologias Principais
 
+| Camada | Tecnologias |
+|-------|-------------|
+| **Frontend** | React, Vite, Context API, CSS responsivo |
+| **Backend** | Node.js, Express, MongoDB (Mongoose), JWT, Multer, Stripe |
+| **Infra** | Variáveis de ambiente (.env), Organização em pastas, Scripts NPM |
+
+---
+
+## ▶️ Como Executar o Projeto
+
+### Frontend
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Acesse no navegador:  
+Acesse:
+```
 http://localhost:5173
+```
+
+### Backend
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+A API iniciará em:
+```
+http://localhost:4000
+```
+
+> Certifique-se de criar o arquivo `.env` no backend conforme o exemplo disponível lá.
 
 ---
 
-## 🎨 Design & UX
-
-- Tokens de cor, radius e espaçamento padronizados
-- Nomenclatura **BEM** para componentes
-- Base responsiva **mobile-first**
-- Preparado para modo **Dark/Light**
-- Transições e feedbacks visuais consistentes
-
----
-
-## ✅ Roadmap de Desenvolvimento
+## 🚀 Roadmap de Desenvolvimento
 
 | Etapa | Status |
 |------|:------:|
-| UI + Design System | ✅ Concluído |
-| Lógica do Carrinho (Context) | ✅ Concluído |
-| Checkout + Inputs de Entrega | ✅ Concluído |
-| Autenticação (JWT) | 🔜 Próximo |
-| Persistência (localStorage / DB) | 🔜 |
-| API REST de Produtos e Pedidos | 🔜 |
-| Pagamentos (Stripe / Pix) | 📝 Avaliação |
-| Painel Administrativo | 📝 Planejado |
-| Deploy (Vercel + Railway/Render) | 📝 Após backend |
+| UI e design responsivo | ✅ |
+| Carrinho com Context API | ✅ |
+| Transição para backend | ✅ Em andamento |
+| Autenticação (JWT) | 🔜 |
+| CRUD de produtos (admin) | 🔜 |
+| Checkout + Pagamentos | 📝 Avaliando Stripe / Pix |
+| Deploy (Frontend + Backend) | 📝 Após conclusão das rotas principais |
 
 ---
 
-## 🤝 Padrão de Commits
+## 🤝 Convenções de Código
+
+- Componentes e rotas organizados por contexto
+- Nomeação clara e padronizada
+- Commits seguindo padrão:
 
 ```
 feat: nova funcionalidade
 fix: correção de bug
-refactor: melhoria de código sem alterar comportamento
-style: ajustes de UI (sem lógica)
-docs: alteração na documentação
-chore: manutenção/configurações
+refactor: melhoria sem alterar comportamento
+style: ajustes visuais (sem lógica)
+docs: documentação
+chore: manutenção
 ```
 
----
-
-## 📜 Licença
-
-Licença **MIT**.
-
----
-
-Feito por **Bryan Alvarenga** 🚀
-> Objetivo: não apenas criar um projeto, mas construir um produto.
